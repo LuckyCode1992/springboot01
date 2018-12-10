@@ -1,4 +1,4 @@
 package com.hxl.hxlspringboot01.service;
 
-public class service {
+public class Service {
 }
