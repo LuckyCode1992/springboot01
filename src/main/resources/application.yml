@@ -1,0 +1,37 @@
+# 配置数据库连接池
+Spring:
+  profiles:
+    active: dev
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      stat-view-servlet:
+        enabled:
+        url-pattern: /druid/*
+      filter:
+        wall:
+          config:
+            multi-statement-allow: true
+
+
+#配置orm
+mybatis-plus:
+  #实体扫面，多个packgage用逗号和分隔号
+  type-aliases-package: com.hxl.hxlspringboot01.entity
+  global-config:
+    #主键类型 0：数据库ID自增，1：用户输入ID，2：全局唯一ID，3：全局唯一
+    id-type: 0
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调式神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  mapper-locations: classpath*:/mybatis/*.xml
+
+
+

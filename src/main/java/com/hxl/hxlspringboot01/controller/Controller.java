@@ -39,7 +39,7 @@ public class Controller {
      * @return
      */
     @RequestMapping(value = "/userInfo3", method = RequestMethod.GET)
-    public Entity getUserInfoByGet2(@RequestParam(value = "account", required = false, defaultValue = "") String account, @RequestParam(value = "pwd", required = false, defaultValue = "") String pwd) {
+    public Entity getUserInfoByGet2(@RequestParam(value = "account", required = false) String account, @RequestParam(value = "pwd", required = false) String pwd) {
         if (account.equals("") || pwd.equals("")) {
             return new Entity(-1, "账户和密码不能为null", null);
         }
