@@ -1,12 +1,24 @@
 package com.hxl.hxlspringboot01.controller;
 
-import com.hxl.hxlspringboot01.entity.Entity;
-import com.hxl.hxlspringboot01.entity.LoginInfo;
-import com.hxl.hxlspringboot01.entity.UserInfo;
+import com.hxl.hxlspringboot01.entity.*;
+import com.hxl.hxlspringboot01.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class Controller {
+public class BaseController {
+    @Autowired
+    AccountService accountService;
+
+    @PostMapping("/account/insert")
+    public R<Account> insert(Account account) {
+        accountService.insert(account);
+        R<Account> r = new R<>();
+        r.setCode(0);
+        r.setMsg("请求成功");
+        return r;
+    }
+
     @RequestMapping("/userInfo1")
     public Entity getEntity() {
         return new Entity(0, "请求成功", new UserInfo("hello", 18, "程序员", "lucky", "123456"));
@@ -31,6 +43,7 @@ public class Controller {
             return new Entity(1, "账户或密码错误", null);
         }
     }
+
     /**
      * GET 请求 ?形式
      *
@@ -49,6 +62,7 @@ public class Controller {
             return new Entity(1, "账户或密码错误", null);
         }
     }
+
     /**
      * POST K-V形式
      *
@@ -67,8 +81,10 @@ public class Controller {
             return new Entity(1, "账户或密码错误", null);
         }
     }
+
     /**
      * POST json格式方式
+     *
      * @param loginInfo
      * @return
      */

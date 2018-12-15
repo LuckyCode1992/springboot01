@@ -1,5 +1,10 @@
 package com.hxl.hxlspringboot01;
 
+import com.hxl.hxlspringboot01.controller.AccountController;
+import com.hxl.hxlspringboot01.controller.BaseController;
+import com.hxl.hxlspringboot01.entity.Account;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,7 +15,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 请求->Controller(参数用entity包装)->Service(entity包装参数)->Mapper(参数用entity包装)->Service->Controller->响应数据
  */
 @SpringBootApplication
+@MapperScan("com.hxl.hxlspringboot01.mapper")
 public class Hxlspringboot01Application {
+
 
     public static void main(String[] args) {
         SpringApplication.run(Hxlspringboot01Application.class, args);

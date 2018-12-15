@@ -7,7 +7,7 @@ Spring:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
       stat-view-servlet:
-        enabled:
+        enabled: false
         url-pattern: /druid/*
       filter:
         wall:
