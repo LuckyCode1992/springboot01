@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import org.springframework.web.bind.annotation.PathVariable;
 
 //lombok 框架
 @Data //注解，自动生成get，set方法 ，重写equal方法和hashcode
@@ -22,6 +21,5 @@ public class Account {
     private int id;
     private String name;
     private int age;
-
 
 }

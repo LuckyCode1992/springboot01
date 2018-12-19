@@ -10,12 +10,19 @@ public class BaseController {
     @Autowired
     AccountService accountService;
 
+
     @PostMapping("/account/insert")
-    public R<Account> insert(Account account) {
-        accountService.insert(account);
+    public R<Account> insert(@RequestBody Account account) {
+       boolean isSucc =  accountService.insert(account);
         R<Account> r = new R<>();
-        r.setCode(0);
-        r.setMsg("请求成功");
+        if (isSucc){
+            r.setCode(0);
+            r.setMsg("请求成功");
+        }else {
+            r.setCode(-1);
+            r.setMsg("业务执行失败");
+        }
+
         return r;
     }
 

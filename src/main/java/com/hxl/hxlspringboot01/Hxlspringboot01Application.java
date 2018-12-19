@@ -20,6 +20,9 @@ public class Hxlspringboot01Application {
 
 
     public static void main(String[] args) {
+
         SpringApplication.run(Hxlspringboot01Application.class, args);
+
+
     }
 }
