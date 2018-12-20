@@ -20,6 +20,6 @@ public class Account {
     @TableField
     private int id;
     private String name;
-    private int age;
+    private Integer age;
 
 }
